@@ -1,3 +1,19 @@
 /* 
     General Styles
 */
+.width-img{
+    width: 100px;
+}
+.logostarwars{
+    width: 5em;
+    margin-left: 8%;
+}
+
+.navbar .btn{
+    margin-right: 10%;
+}
+
+option{
+    /* color: ; */
+    background-color: white;
+}

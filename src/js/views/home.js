@@ -1,24 +1,25 @@
 import React, { useEffect } from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 // import { Context } from "react";
 import { useContext } from "react";
 import { Context } from "../store/appContext";
+import {Card} from "../component/card";
 
 export const Home = () => {
-	const {store,actions} = useContext(Context);
-	useEffect( () => {actions.getPeople(), actions.getVehicles(), actions.getPlanets() }, [] );
-	console.log(store.people, store.planets);
-	return(
-		<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
-	</div>
-	)	
+  const { store, actions } = useContext(Context);
+  useEffect(() => {
+    actions.getPeople(); 
+	// actions.getVehicles(), 
+	// actions.getPlanets(),
+	// actions.getProperties();
+  }, []);
+  console.log(store.people);
+  return (
+  <div>
+	<h1>Characters</h1>
+	<div className="d-flex" style={{overflowX:"scroll"}}>
+	{store.people.map((item, index) => (
+					<Card/>))}
+					</div>
+  </div>);
 };
-
