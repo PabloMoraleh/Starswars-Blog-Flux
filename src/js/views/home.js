@@ -8,18 +8,30 @@ import {Card} from "../component/card";
 export const Home = () => {
   const { store, actions } = useContext(Context);
   useEffect(() => {
-    actions.getPeople(); 
-	// actions.getVehicles(), 
-	// actions.getPlanets(),
+  actions.getPeople(); 
+	actions.getVehicles();
+	actions.getPlanets();
 	// actions.getProperties();
   }, []);
-  console.log(store.people);
+  // console.log(store.people);
+  // console.log(store.planets);
+  // console.log(store.starships);
   return (
   <div>
 	<h1>Characters</h1>
+  <div className="row flex-nowrap" style={{overflowX:"scroll"}}>
+  {store.people.map((item, index) => (
+					<div className="col" key={item.uid}> <Card name={item.name} /> </div>))}
+  </div>
+  <h1>Planets</h1>
+  <div className="row flex-nowrap" style={{overflowX:"scroll"}}>
+  {store.planets.map((item, index) => (
+					<div className="col" key={item.uid}> <Card name={item.name} /> </div>))}
+  </div>
+  <h1>Vehicles</h1>
 	<div className="d-flex" style={{overflowX:"scroll"}}>
-	{store.people.map((item, index) => (
-					<Card/>))}
-					</div>
+	{store.starships.map((item, index) => (
+					<Card key={item.uid} name={item.name} />))}
+					</div>  
   </div>);
 };
