@@ -29,9 +29,9 @@ export const Home = () => {
 					<div className="col" key={item.uid}> <Card name={item.name} /> </div>))}
   </div>
   <h1>Vehicles</h1>
-	<div className="d-flex" style={{overflowX:"scroll"}}>
-	{store.starships.map((item, index) => (
-					<Card key={item.uid} name={item.name} />))}
-					</div>  
+  <div className="row flex-nowrap" style={{overflowX:"scroll"}}>
+  {store.starships.map((item, index) => (
+					<div className="col" key={item.uid}> <Card name={item.name} /> </div>))}
+  </div>  
   </div>);
 };
