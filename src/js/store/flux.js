@@ -5,6 +5,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],
 			starships: [],
 			properties: [],
+			gender:[],
+
+			favourite:[],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -50,6 +53,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({properties:data.results})})
 				.catch(err => console.error(err))
 			},
+			getGender: () => {
+				fetch("https://www.swapi.tech/api/people/")
+				.then(res => res.json())
+				.then(data => {
+					console.log(data);
+					setStore({people:data.results})})
+				.catch(err => console.error(err))
+			},
+			// getPhotos: () => {
+			// 	fetch("https://starwars-visualguide.com/#/characters/:id/")
+			// 	.then(res => res.json())
+			// 	.then(data => {
+			// 		console.log(data);
+			// 		setStore({photos:data.results})})
+			// 	.catch(err => console.error(err))
+			// },
 
 			
 
