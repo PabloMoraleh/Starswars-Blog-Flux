@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import "../../styles/home.css";
-// import { Context } from "react";
-import { useContext } from "react";
 import { Context } from "../store/appContext";
 
-export const Card = ({ name, gender }) => {
+export const Card = ({ name }) => {
+  const {store, actions} = useContext(Context)
   return (
     <div className="card" style={{ width: "18rem" }}>
       <img
@@ -15,14 +14,16 @@ export const Card = ({ name, gender }) => {
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
         <p className="card-text my-0">
-          <span>Gender:{gender}</span>
+          <span>Gender:</span>
+          <span>Hair-color:</span>
+          <span>Eye color:</span>
         </p>
         <a href="#" className="btn btn-primary">
           Learn more!
         </a>
         <button
           className="btn btn-outline-warning"
-          onClick={() => actions.addFavourite()}
+          onClick={() => actions.addFavorite(name)}
         >
           <i className="fa fa-heart"></i>
         </button>

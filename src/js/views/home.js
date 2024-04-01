@@ -19,9 +19,8 @@ export const Home = () => {
         {store.people.map((item, index) => (
           <div className="col" key={item.uid}>
             
-            <Card name={item.name} gender={item.gender} haircolor={item.hair_color}
-						eyecolor={item.eye_color}
-						id={index + 1}/>
+            <Card name={item.name} 
+						id={index}/>
           </div>
         ))}
       </div>

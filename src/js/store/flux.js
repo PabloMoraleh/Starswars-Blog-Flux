@@ -7,7 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			properties: [],
 			gender:[],
 
-			favourite:[],
+			favorite:[],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -69,7 +69,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 		setStore({photos:data.results})})
 			// 	.catch(err => console.error(err))
 			// },
-
+			addFavorite: (name) => {
+				// setStore({favourite:data.results})
+				let listFav = getStore().favorite
+				let newFav = name
+				let newListFav = listFav.concat(newFav) 
+				setStore({favorite : newListFav})
+			},
+			deleteFavorite: (name) => {
+				console.log(name);
+				// setStore({favourite:data.results})
+				let listFav = getStore().favorite
+				let delFav = name
+				let delListFav = listFav.filter(newFav) 
+				setStore({favorite : delListFav})
+			},
 			
 
 			changeColor: (index, color) => {
