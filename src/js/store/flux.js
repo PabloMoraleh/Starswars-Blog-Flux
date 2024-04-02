@@ -1,3 +1,4 @@
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -6,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			starships: [],
 			properties: [],
 			gender:[],
+			character:{},
 
 			favorite:[],
 		},
@@ -61,28 +63,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({people:data.results})})
 				.catch(err => console.error(err))
 			},
-			// getPhotos: () => {
-			// 	fetch("https://starwars-visualguide.com/#/characters/:id/")
-			// 	.then(res => res.json())
-			// 	.then(data => {
-			// 		console.log(data);
-			// 		setStore({photos:data.results})})
-			// 	.catch(err => console.error(err))
-			// },
+			
 			addFavorite: (name) => {
 				// setStore({favourite:data.results})
 				let listFav = getStore().favorite
 				let newFav = name
-				let newListFav = listFav.concat(newFav) 
+				if (!listFav.includes(name) ) {
+					let newListFav = listFav.concat(newFav) 
 				setStore({favorite : newListFav})
+				}
+				
 			},
 			deleteFavorite: (name) => {
 				console.log(name);
 				// setStore({favourite:data.results})
 				let listFav = getStore().favorite
 				let delFav = name
-				let delListFav = listFav.filter(newFav) 
+				let delListFav = listFav.filter((e)=> {return e != delFav} ) 
 				setStore({favorite : delListFav})
+			},
+			getCharacter: (uid) => {
+				fetch(`https://www.swapi.tech/api/people/${uid}`)
+				.then(res => res.json())
+				.then(data => {
+					console.log(data);
+					setStore({character:data.result})})
+				.catch(err => console.error(err))
 			},
 			
 

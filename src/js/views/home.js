@@ -19,8 +19,7 @@ export const Home = () => {
         {store.people.map((item, index) => (
           <div className="col" key={item.uid}>
             
-            <Card name={item.name} 
-						id={index}/>
+            <Card name={item.name} type="characters" uid={item.uid} />
           </div>
         ))}
       </div>
@@ -28,17 +27,17 @@ export const Home = () => {
       <div className="row flex-nowrap" style={{ overflowX: "scroll" }}>
         {store.planets.map((item, index) => (
           <div className="col" key={item.uid}>
-            {" "}
-            <Card name={item.name} />{" "}
+            
+            <Card name={item.name} type="planets" uid={item.uid} />
           </div>
         ))}
       </div>
-      <h1>Vehicles</h1>
+      <h1>Starships</h1>
       <div className="row flex-nowrap" style={{ overflowX: "scroll" }}>
         {store.starships.map((item, index) => (
-          <div className="col" key={item.uid}>
-            {" "}
-            <Card name={item.name} />{" "}
+          <div className="col" key={item.uid} >
+            
+            <Card name={item.name} type="starships" uid={item.uid} />
           </div>
         ))}
       </div>

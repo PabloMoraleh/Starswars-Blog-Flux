@@ -2,23 +2,23 @@ import React, { useEffect, useContext } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 
-export const Card = ({ name }) => {
+export const Card = ({ name,uid,type }) => {
   const {store, actions} = useContext(Context)
   return (
     <div className="card" style={{ width: "18rem" }}>
       <img
-        src="."
+        src={`https://starwars-visualguide.com/assets/img/${type}/${uid}.jpg`}
         className="card-img-top mx-0"
-        alt="..."
       />
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
         <p className="card-text my-0">
-          <span>Gender:</span>
-          <span>Hair-color:</span>
-          <span>Eye color:</span>
+          <p>Gender:</p>
+          <p>Hair-color:</p>
+          <p>Eye color:</p>
         </p>
-        <a href="#" className="btn btn-primary">
+        <div className="d-flex justify-content-between">
+        <a href={`/views/${type}/${uid}`} className="btn btn-primary">
           Learn more!
         </a>
         <button
@@ -27,6 +27,7 @@ export const Card = ({ name }) => {
         >
           <i className="fa fa-heart"></i>
         </button>
+        </div>
       </div>
     </div>
   );
