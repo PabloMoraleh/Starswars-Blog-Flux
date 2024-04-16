@@ -27,15 +27,15 @@ export const Navbar = () => {
   <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Favorite <span className="bg-secondary rounded-5">{store.favorite.length ===0 ? null : store.favorite.length}</span>
   </button>
-  <ul className="dropdown-menu">
+  <ul className="dropdown-menu dropdown-menu-end">
   {store.favorite.map((item,index) => (
 					<li key={index}>
-						{item}
 						<i
-						 className="fa fa-trash"
+						 className="fa fa-trash px-4"
             //  onClick={() => actions.addFavorite(name)}
 						 onClick={() => 
 							actions.deleteFavorite(item)}></i>
+              {item}						
 					</li>))}
   </ul>
 </div>

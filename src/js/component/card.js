@@ -13,9 +13,6 @@ export const Card = ({ name,uid,type }) => {
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
         <p className="card-text my-0">
-          <p>Gender:</p>
-          <p>Hair-color:</p>
-          <p>Eye color:</p>
         </p>
         <div className="d-flex justify-content-between">
         <a href={`/views/${type}/${uid}`} className="btn btn-primary">
